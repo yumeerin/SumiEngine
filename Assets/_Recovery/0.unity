@@ -330,7 +330,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13bd178638030bb85a32747d50583ff2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sumi.SuiLexerTest
-  story: {fileID: -3891853552075654437, guid: ca9595757f1997247a9f0a815068a8f4, type: 3}
 --- !u!4 &276262573
 Transform:
   m_ObjectHideFlags: 0
@@ -375,7 +374,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d99c3d88730bf50c99cc68500b6863ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Sumi.VNRuntime
-  story: {fileID: -3891853552075654437, guid: ca9595757f1997247a9f0a815068a8f4, type: 3}
 --- !u!4 &400121502
 Transform:
   m_ObjectHideFlags: 0

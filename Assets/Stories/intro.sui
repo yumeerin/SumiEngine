@@ -1,0 +1,13 @@
+label start
+
+say Sumi:
+    "Hi?"
+
+say Yume:
+    "Hello"
+
+say Test:
+    "Test"
+
+
+jump start

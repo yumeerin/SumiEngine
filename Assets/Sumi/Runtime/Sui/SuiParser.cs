@@ -76,6 +76,18 @@ namespace Sumi
                 target: name.Value
             );
         }
+        private Instruction ParseChoice()
+        {
+            SuiToken text = Expect(SuiTokenType.String);
+            SuiToken arrow = Expect(SuiTokenType.Arrow);
+            SuiToken target = Expect(SuiTokenType.Word);
+
+            return new Instruction(
+                InstructionType.Choice,
+                text: text.Value,
+                target: target.Value
+            );
+        }
 
         public List<Instruction> Parse()
         {
@@ -104,6 +116,13 @@ namespace Sumi
                     Advance();
 
                     Instruction instruction = ParseJump();
+                    instructions.Add(instruction);
+                }
+                else if (token.Type == SuiTokenType.Word && token.Value == "choice")
+                {
+                    Advance();
+
+                    Instruction instruction = ParseChoice();
                     instructions.Add(instruction);
                 }
                 else

@@ -7,4 +7,4 @@ Well I guess it might be easier to code...in my own custom code...after this cod
 
 # What is Completed?
 - Currently includes bare core files
-
+- Added a basic dialogue system.

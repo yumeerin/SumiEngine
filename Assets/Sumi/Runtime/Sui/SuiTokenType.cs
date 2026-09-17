@@ -5,6 +5,7 @@ namespace Sumi
         Word,
         String,
         Colon,
+        Arrow,
         NewLine
     }
 }

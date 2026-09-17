@@ -5,7 +5,8 @@ namespace Sumi
 {
     public class SuiLexerTest : MonoBehaviour
     {
-     [SerializeField] private TextAsset story;
+        [SerializeField] private TextAsset story;
+
         private void Start()
         {
             SuiLexer lexer = new SuiLexer();
@@ -25,18 +26,16 @@ namespace Sumi
 
             Debug.Log("Instruction count: " + instructions.Count);
 
-            Debug.Log("First instruction:");
-            Debug.Log(instructions[0].Type);
-            Debug.Log(instructions[0].Target);
-
-            Debug.Log("Second instruction:");
-            Debug.Log(instructions[1].Type);
-            Debug.Log(instructions[1].Speaker);
-            Debug.Log(instructions[1].Text);
-
-            Debug.Log("Third instruction:");
-            Debug.Log(instructions[2].Type);
-            Debug.Log(instructions[2].Target);
+            foreach (Instruction instruction in instructions)
+            {
+                Debug.Log(
+                    instruction.Type +
+                    " | " +
+                    instruction.Text +
+                    " | " +
+                    instruction.Target
+                );
+            }
         }
     }
 }

@@ -1,13 +1,33 @@
 label start
 
 say Sumi:
-    "Hi?"
+    "What should we do?"
 
-say Yume:
-    "Hello"
-
-say Test:
-    "Test"
+choice "Go outside" -> outside
+choice "Stay inside" -> inside
 
 
-jump start
+label outside
+
+say Sumi:
+    "Let's go outside!"
+
+choice "Go Back" -> start
+
+jump end
+
+
+label inside
+
+say Sumi:
+    "Let's stay inside!"
+
+say Sumi:
+    "Uhh wanna go back?"
+
+choice "Go back" -> start
+
+jump end
+
+
+label end

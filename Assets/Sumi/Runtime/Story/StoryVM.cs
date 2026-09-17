@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 namespace Sumi
 {
@@ -31,10 +32,40 @@ namespace Sumi
                     continue;
                 }
 
+                if (instruction.Type == InstructionType.Choice)
+                {
+                    return instruction;
+                }
+
                 return instruction;
             }
 
             return null;
+        }
+
+        public List<Instruction> GetChoices()
+        {
+            List<Instruction> choices = new();
+
+            while (position < program.Instructions.Count)
+            {
+                Instruction instruction = program.Instructions[position];
+
+                if (instruction.Type != InstructionType.Choice)
+                {
+                    break;
+                }
+
+                choices.Add(instruction);
+                position++;
+            }
+
+            return choices;
+        }
+
+        public void Choose(string target)
+        {
+            JumpToLabel(target);
         }
 
         private void JumpToLabel(string name)
@@ -54,6 +85,11 @@ namespace Sumi
 
         public Instruction GetCurrentInstruction()
         {
+            if (position >= program.Instructions.Count)
+            {
+                return null;
+            }
+
             return program.Instructions[position];
         }
 

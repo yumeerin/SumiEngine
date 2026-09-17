@@ -66,6 +66,19 @@ namespace Sumi
 
                     Advance();
                 }
+                if (!IsAtEnd() &&
+                    CurrentCharacter() == '-'
+                && position + 1 < source.Length
+                && source[position +1] == '>')
+                {
+                    tokens.Add(new SuiToken(
+                        SuiTokenType.Arrow,
+                        "->"
+                    ));
+
+                    Advance();
+                    Advance();
+                }
             }
 
             return tokens;
@@ -93,7 +106,8 @@ namespace Sumi
             while (!IsAtEnd() &&
                 CurrentCharacter() != ' ' &&
                 CurrentCharacter() != '\n' &&
-                CurrentCharacter() != ':')
+                CurrentCharacter() != ':' &&
+                CurrentCharacter() != '-')
             {
                 word += CurrentCharacter();
                 Advance();
